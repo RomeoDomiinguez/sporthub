@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(111.4deg, rgba(7,7,9,1) 6.5%, rgb(113, 24, 24) 93.2%);
+    min-height: 100vh;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem; /* Reduce padding for smaller screens */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav img {
+    width: 100px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+nav img:hover {
+    transform: scale(1.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 0 1rem; /* Reduce padding for smaller screens */
+    transition: all 0.3s ease;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav ul li:hover {
+    transform: scale(1.4);
+    transition: all 0.3s ease;
+}
+
+main {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem; /* Reduce padding for smaller screens */
+}
+
+main h1 {
+    font-size: 2.5rem; /* Slightly smaller for smaller screens */
+    font-weight: 700;
+}
+
+main p {
+    font-size: 1.2rem; /* Smaller font for smaller screens */
+    font-weight: 500;
+}
+
+main img {
+    width: 100%; /* Full width on smaller screens */
+    height: auto;
+}
+
+.hero p {
+    padding-bottom: 20px;
+}
+
+.hero a {
+    text-decoration: none;
+    color: red;
+    font-weight: 700;
+    background-color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1rem; /* Smaller padding for smaller screens */
+    transition: all 0.3s ease;
+}
+
+.hero a:hover {
+    background-color: red;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.features {
+    max-width: 100%; /* Full width on smaller screens */
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature {
+    display: block; /* Stacked for smaller screens */
+    padding: 1rem; /* Padding for smaller screens */
+}
+
+.feature img {
+    width: 100%; /* Full width on smaller screens */
+    height: auto;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.feature img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    nav {
+        padding: 1rem 5rem;
+    }
+
+    main {
+        padding: 1rem 10rem;
+    }
+
+    .feature {
+        display: flex;
+        padding-left: 5rem;
+    }
+
+    .features {
+        max-width: 800px;
+    }
+
+    main h1 {
+        font-size: 3rem;
+    }
+
+    main p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    nav {
+        padding: 1rem 10rem;
+    }
+
+    main {
+        padding: 1rem 10rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .feature {
+        padding-left: 20rem;
+    }
+}

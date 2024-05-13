@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(111.4deg, rgba(7,7,9,1) 6.5%, rgb(113, 24, 24) 93.2%);
+    min-height: 100vh;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem; /* Reducir padding para dispositivos más pequeños */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav img {
+    width: 80px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 10px; /* Reducir el margen para dispositivos pequeños */
+    transition: all 0.3s ease;
+}
+
+nav ul li a {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white; /* Añadir color blanco para el texto */
+}
+
+nav ul li:hover {
+    transform: scale(1.2); /* Menor escala para dispositivos pequeños */
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 2rem; /* Reducir padding para dispositivos pequeños */
+    }
+
+    nav img {
+        width: 60px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    }
+
+    nav ul {
+        flex-direction: row; /* Cambiar a columna para dispositivos pequeños */
+        align-items: center; /* Centrar elementos para dispositivos pequeños */
+    }
+
+    nav ul li {
+        margin-left: 0; /* Eliminar margen para disposición en columna */
+        padding: 10px;
+    }
+
+    nav ul li a {
+        padding: 5px; /* Reducir padding para dispositivos más pequeños */
+    }
+}
+
+@media (min-width: 1024px) {
+    nav {
+        padding: 1rem 10rem; /* Restaurar padding para dispositivos más grandes */
+    }
+
+    nav img {
+        width: 100px; /* Tamaño original para dispositivos más grandes */
+    }
+
+    nav ul {
+        flex-direction: row; /* Disposición original para dispositivos grandes */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 15px; /* Restaurar margen para dispositivos grandes */
+    }
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 900px;
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.post-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.post-category,
+.post-author {
+    font-size: 16px;
+    margin: 0 10px;
+    color: #666;
+}
+
+.post-content {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.welcome {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.no-posts {
+    font-size: 18px;
+    text-align: center;
+    color: #999;
+    margin-top: 50px;
+}
+
+.feed_post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-image-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 10px; /* Ajusta según sea necesario */
+}
+
+.post-image {
+    max-width: 98%; /* Ajusta según sea necesario */
+    max-height: 98%; /* Ajusta según sea necesario */
+    padding-bottom: 2%;
+}

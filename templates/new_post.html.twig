@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Post</title>
+    <link rel="stylesheet" href="{{ asset('styles/post.css') }}">
+</head>
+<body>
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+        <form class="post-form" method="post">
+            <h1>Create a New Post</h1>
+            <div class="form-group">
+                {{ form_label(form.titulo) }}
+                {{ form_widget(form.titulo, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.categoria) }}
+                {{ form_widget(form.categoria, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.contenido) }}
+                {{ form_widget(form.contenido, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.imagen) }}
+                {{ form_widget(form.imagen, {'attr': {'class': 'form-control-file'}}) }}
+            </div>
+            {{ form_rest(form) }} {# Renderiza el token CSRF y otros campos restantes del formulario #}
+            <button type="submit" class="btn-primary">Submit</button>
+        </form>
+        {{ form_end(form) }}
+            <a href="{{ path('app_feed') }}" class="link">Volver a la feed</a>
+    </div>
+{% endblock %}
+</body>
+</html>

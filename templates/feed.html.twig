@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportHub</title>
+    <link rel="stylesheet" href="{{ asset('styles/feed.css') }}">
+    <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            <ul class="menu">
+                <li><a href="/new_post" class="menu-item">
+                    <i class="fa-solid fa-circle-plus fa-xl icon" style="color: #ffffff;"></i>
+                    Nuevo Post
+                </a></li>
+                <li><a href="/store" class="menu-item">
+                    <i class="fa-solid fa-store fa-xl icon" style="color: #ffffff;"></i>
+                    Tienda
+                </a></li>
+                <li><a href="/groups" class="menu-item">
+                    <i class="fa-solid fa-people-group fa-xl icon" style="color: #ffffff;"></i>
+                    Grupos
+                </a></li>
+                <li><a href="/profile" class="menu-item">
+                    <i class="fa-solid fa-user fa-xl icon" style="color: #ffffff;"></i>
+                    Perfil
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block body %}
+            {% if user %}
+                <p class="welcome">Bienvenido, {{ user.email }}</p>  <!-- Usa el atributo adecuado para el nombre del usuario -->
+            {% else %}
+                <p class="welcome">No estás autenticado.</p>
+            {% endif %}
+        {% endblock %}
+            <div class="feed_post">
+                {% if posts is empty %}
+                    <p class="no-posts">No hay posts para mostrar.</p>
+                {% else %}
+                    <ul class="post-list">
+                        {% for post in posts %}
+                            <li class="post">
+                                <h2 class="post-title">{{ post.titulo }}</h2>
+                                <p class="post-category"><strong>Categoría:</strong> {{ post.categoria }}</p>
+                                <p class="post-author"><strong>Autor:</strong> {{ post.autor }}</p>
+                                <p class="post-content">{{ post.contenido }}</p>
+                                {% if post.imagen is not empty %}
+                                    <div class="post-image-container">
+                                        <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image">
+                                    </div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+    </main>
+</body>
+</html>
