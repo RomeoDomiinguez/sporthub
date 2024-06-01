@@ -5,8 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Post</title>
     <link rel="stylesheet" href="{{ asset('styles/post.css') }}">
+    <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<header>
+        <nav class="navbar">
+            <a href="/feed">
+                <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="/new_post" class="menu-item">
+                    <i class="fa-solid fa-circle-plus fa-xl icon" style="color: #ffffff;"></i>
+                    Nuevo Post
+                </a></li>
+                <li><a href="/search" class="menu-item">
+                    <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i>
+                    Buscador
+                </a></li>
+                <li><a href="/store" class="menu-item">
+                    <i class="fa-solid fa-store fa-xl icon" style="color: #ffffff;"></i>
+                    Tienda
+                </a></li>
+                <li><a href="/groups" class="menu-item">
+                    <i class="fa-solid fa-people-group fa-xl icon" style="color: #ffffff;"></i>
+                    Grupos
+                </a></li>
+                <li><a href="/profile" class="menu-item">
+                    <i class="fa-solid fa-user fa-xl icon" style="color: #ffffff;"></i>
+                    Perfil
+                </a></li>
+            </ul>
+        </nav>
+    </header>
 {% block body %}
     <div class="container">
         {{ form_start(form) }}

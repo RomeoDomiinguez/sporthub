@@ -70,3 +70,41 @@ body {
 a {
     text-decoration: none;
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem; /* Reducir padding para dispositivos más pequeños */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav img {
+    width: 80px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 10px; /* Reducir el margen para dispositivos pequeños */
+    transition: all 0.3s ease;
+}
+
+nav ul li a {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white; /* Añadir color blanco para el texto */
+}
+
+nav ul li:hover {
+    transform: scale(1.2); /* Menor escala para dispositivos pequeños */
+    transition: all 0.3s ease;
+}
