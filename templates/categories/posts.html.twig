@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Post</title>
-    <link rel="stylesheet" href="{{ asset('styles/post.css') }}">
+    <title>Posts en {{ category }}</title>
+    <link rel="stylesheet" href="{{ asset('styles/groups.css') }}">
     <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar">
             <a href="/feed">
                 <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
@@ -37,32 +38,28 @@
             </ul>
         </nav>
     </header>
-{% block body %}
-    <div class="container">
-        {{ form_start(form) }}
-        <form class="post-form" method="post">
-            <h1>Create a New Post</h1>
-            <div class="form-group">
-                {{ form_label(form.titulo) }}
-                {{ form_widget(form.titulo, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.categoria) }}
-                {{ form_widget(form.categoria, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.contenido) }}
-                {{ form_widget(form.contenido, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.imagen) }}
-                {{ form_widget(form.imagen, {'attr': {'class': 'form-control-file'}}) }}
-            </div>
-            {{ form_rest(form) }} {# Renderiza el token CSRF y otros campos restantes del formulario #}
-            <button type="submit" class="btn-primary">Submit</button>
-        </form>
-        {{ form_end(form) }}
+<div class="container">
+        <h1>Posts en {{ category }}</h1>
+
+        {% if posts is empty %}
+            <p class="no-results">No se encontraron posts en esta categoría.</p>
+        {% else %}
+            <ul class="post-list">
+                {% for post in posts %}
+                    <li class="post">
+                        <h2 class="post-title">{{ post.titulo }}</h2>
+                        <p class="post-category"><strong>Categoría:</strong> {{ post.categoria }}</p>
+                        <p class="post-author"><strong>Autor:</strong> {{ post.autor.email }}</p>
+                        <p class="post-content">{{ post.contenido }}</p>
+                        {% if post.imagen is not empty %}
+                            <div class="post-image-container">
+                                <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image" alt="Imagen del post">
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
-{% endblock %}
 </body>
 </html>

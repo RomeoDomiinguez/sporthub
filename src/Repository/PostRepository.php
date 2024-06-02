@@ -1,5 +1,7 @@
 <?php
 
+// src/Repository/PostRepository.php
+
 namespace App\Repository;
 
 use App\Entity\Post;
@@ -21,28 +23,30 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    //    /**
-    //     * @return Post[] Returns an array of Post objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    /**
+     * @return string[] Returns an array of unique categories
+     */
+    public function findUniqueCategoriesWithCount(): array
+{
+    $queryBuilder = $this->createQueryBuilder('p')
+        ->select('p.categoria, COUNT(p.id) as post_count')
+        ->groupBy('p.categoria')
+        ->orderBy('p.categoria', 'ASC');
 
-    //    public function findOneBySomeField($value): ?Post
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    return $queryBuilder->getQuery()->getResult();
+}
+
+    /**
+     * @param string $category
+     * @return Post[] Returns an array of Post objects filtered by category
+     */
+    public function findByCategory(string $category): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.categoria = :category')
+            ->setParameter('category', $category)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

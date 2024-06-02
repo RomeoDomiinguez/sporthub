@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Post</title>
-    <link rel="stylesheet" href="{{ asset('styles/post.css') }}">
+    <title>Categorías Únicas</title>
+    <link rel="stylesheet" href="{{ asset('styles/categories.css') }}">
     <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar">
             <a href="/feed">
                 <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
@@ -37,32 +38,19 @@
             </ul>
         </nav>
     </header>
-{% block body %}
     <div class="container">
-        {{ form_start(form) }}
-        <form class="post-form" method="post">
-            <h1>Create a New Post</h1>
-            <div class="form-group">
-                {{ form_label(form.titulo) }}
-                {{ form_widget(form.titulo, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.categoria) }}
-                {{ form_widget(form.categoria, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.contenido) }}
-                {{ form_widget(form.contenido, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.imagen) }}
-                {{ form_widget(form.imagen, {'attr': {'class': 'form-control-file'}}) }}
-            </div>
-            {{ form_rest(form) }} {# Renderiza el token CSRF y otros campos restantes del formulario #}
-            <button type="submit" class="btn-primary">Submit</button>
-        </form>
-        {{ form_end(form) }}
+        <h1>Categorías Únicas</h1>
+
+        <div class="category-list">
+            {% for category in categories %}
+                <a href="{{ path('app_category_posts', {category: category.categoria}) }}">
+                    <div class="category-item">
+                        <div class="category-name">{{ category.categoria }}</div>
+                         <div class="category-details">{{ category.post_count }} posts</div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
-{% endblock %}
 </body>
 </html>
