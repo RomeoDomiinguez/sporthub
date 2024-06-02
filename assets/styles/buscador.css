@@ -148,3 +148,33 @@ nav ul li:hover {
     transform: scale(1.2); /* Menor escala para dispositivos pequeños */
     transition: all 0.3s ease;
 }
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-toggle {
+    cursor: pointer;
+}
+
+nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    padding-top: 15px;
+}
+
+nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav .dropdown-menu li {
+    margin: 0;
+}
+
+nav .dropdown-menu li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
