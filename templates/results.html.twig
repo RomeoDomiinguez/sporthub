@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+    <link rel="stylesheet" href="{{ asset('styles/buscador.css') }}">
+    <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/feed">
+                <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="/new_post" class="menu-item">
+                    <i class="fa-solid fa-circle-plus fa-xl icon" style="color: #ffffff;"></i>
+                    Nuevo Post
+                </a></li>
+                <li><a href="/search" class="menu-item">
+                    <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i>
+                    Buscador
+                </a></li>
+                <li><a href="/store" class="menu-item">
+                    <i class="fa-solid fa-store fa-xl icon" style="color: #ffffff;"></i>
+                    Tienda
+                </a></li>
+                <li><a href="/groups" class="menu-item">
+                    <i class="fa-solid fa-people-group fa-xl icon" style="color: #ffffff;"></i>
+                    Grupos
+                </a></li>
+                <li><a href="/profile" class="menu-item">
+                    <i class="fa-solid fa-user fa-xl icon" style="color: #ffffff;"></i>
+                    Perfil
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Resultados de Búsqueda</h1>
+
+        <form action="{{ path('app_search') }}" method="GET" class="search-form">
+            <input type="text" name="search" value="{{ searchTerm }}" placeholder="Buscar...">
+            <select name="searchBy">
+                <option value="all" {% if searchBy == 'all' %}selected{% endif %}>Todos</option>
+                <option value="title" {% if searchBy == 'title' %}selected{% endif %}>Título</option>
+                <option value="category" {% if searchBy == 'category' %}selected{% endif %}>Categoría</option>
+            </select>
+            <button type="submit">Buscar</button>
+        </form>
+
+        {% if posts is empty %}
+            <p class="no-results">No se encontraron resultados.</p>
+        {% else %}
+            <ul class="post-list">
+                {% for post in posts %}
+                    <li class="post">
+                        <h2 class="post-title">{{ post.titulo }}</h2>
+                        <p class="post-category"><strong>Categoría:</strong> {{ post.categoria }}</p>
+                        <p class="post-author"><strong>Autor:</strong> {{ post.autor.email }}</p>
+                        <p class="post-content">{{ post.contenido }}</p>
+                        {% if post.imagen is not empty %}
+                            <div class="post-image-container">
+                                <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image" alt="Imagen del post">
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

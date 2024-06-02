@@ -1,0 +1,150 @@
+/* public/styles/buscador.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(111.4deg, rgba(7,7,9,1) 6.5%, rgb(113, 24, 24) 93.2%);
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente en la página */
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.search-form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"],
+.search-form select {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: 2px solid #dbdbdb; /* Color de borde similar a Instagram */
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000; /* Color de botón similar a Instagram */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #b30000; /* Color de botón hover */
+}
+
+.post-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post {
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb; /* Borde de los posts */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px;
+    color: #262626; /* Color de título de post */
+}
+
+.post-category, .post-author {
+    font-size: 0.9rem;
+    padding: 0 10px 10px;
+    color: #8e8e8e; /* Color de texto secundario */
+}
+
+.post-content {
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #262626; /* Color de texto principal */
+}
+
+.post-image-container {
+    padding: 10px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.no-results {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #8e8e8e; /* Color de texto de resultados vacíos */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem; /* Reducir padding para dispositivos más pequeños */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav img {
+    width: 80px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 10px; /* Reducir el margen para dispositivos pequeños */
+    transition: all 0.3s ease;
+}
+
+nav ul li a {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white; /* Añadir color blanco para el texto */
+}
+
+nav ul li:hover {
+    transform: scale(1.2); /* Menor escala para dispositivos pequeños */
+    transition: all 0.3s ease;
+}

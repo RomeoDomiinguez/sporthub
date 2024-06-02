@@ -8,3 +8,8 @@ app_default:
     path: /
     controller: App\Controller\HomeController::index
 
+# config/routes.yaml
+
+app_search:
+    path: /search
+    controller: App\Controller\SearchController::search
