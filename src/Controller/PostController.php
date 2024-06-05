@@ -7,6 +7,7 @@ use App\Form\PostType;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -71,5 +72,21 @@ class PostController extends AbstractController
             'form' => $form->createView(),
             'posts' => $posts,
         ]);
+    }
+
+    #[Route('/like_post/{id}', name: 'like_post', methods: ['POST'])]
+    public function likePost(int $id): JsonResponse
+    {
+        $post = $this->postRepository->find($id);
+
+        if (!$post) {
+            return new JsonResponse(['success' => false, 'message' => 'Post not found'], 404);
+        }
+
+        $post->incrementLikes();
+        $this->entityManager->persist($post);
+        $this->entityManager->flush();
+
+        return new JsonResponse(['success' => true, 'newLikeCount' => $post->getLikes()]);
     }
 }

@@ -165,3 +165,29 @@ nav .dropdown-menu li a {
     color: white;
     text-decoration: none;
 }
+
+.like-section {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.like-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.like-button i {
+    margin-right: 5px;
+}
+
+.like-count {
+    margin-left: 10px;
+    font-size: 16px;
+}
