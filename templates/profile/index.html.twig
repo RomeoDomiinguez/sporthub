@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="{{ asset('styles/profile.css') }}">
+    <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+        <nav class="navbar">
+            <a href="/feed">
+                <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="/new_post" class="menu-item">
+                    <i class="fa-solid fa-circle-plus fa-xl icon" style="color: #ffffff;"></i>
+                    Nuevo Post
+                </a></li>
+                <li><a href="/search" class="menu-item">
+                    <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i>
+                    Buscador
+                </a></li>
+                <li><a href="/store" class="menu-item">
+                    <i class="fa-solid fa-store fa-xl icon" style="color: #ffffff;"></i>
+                    Tienda
+                </a></li>
+                <li><a href="/groups" class="menu-item">
+                    <i class="fa-solid fa-people-group fa-xl icon" style="color: #ffffff;"></i>
+                    Grupos
+                </a></li>
+                <li class="dropdown">
+                    <a href="/profile" class="dropdown-toggle">
+                    <i class="fa-solid fa-user fa-xl icon" style="color: #ffffff;"></i>
+                    Perfil</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/logout">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <div class="container"> 
+        <h1>Perfil de {{ user.email }}</h1>
+
+        <h2>Tus Posts</h2>
+        
+        {% if posts is empty %}
+            <p>No tienes posts.</p>
+        {% else %}
+            <ul>
+                {% for post in posts %}
+                    <li class="post">
+                                <h2 class="post-title">{{ post.titulo }}</h2>
+                                <p class="post-category"><strong>Categoría:</strong> {{ post.categoria }}</p>
+                                <p class="post-author"><strong>Autor:</strong> {{ post.autor }}</p>
+                                <p class="post-content">{{ post.contenido }}</p>
+                                {% if post.imagen is not empty %}
+                                    <div class="post-image-container">
+                                        <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image">
+                                    </div>
+                                {% endif %}
+                        <form action="{{ path('app_delete_post', {'id': post.id}) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este post?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+    </main>
+</body>
+</html>

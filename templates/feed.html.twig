@@ -11,7 +11,9 @@
 <body>
     <header>
         <nav class="navbar">
-            <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            <a href="/feed">
+                <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            </a>
             <ul class="menu">
                 <li><a href="/new_post" class="menu-item">
                     <i class="fa-solid fa-circle-plus fa-xl icon" style="color: #ffffff;"></i>
@@ -41,13 +43,6 @@
         </nav>
     </header>
     <main>
-        {% block body %}
-            {% if user %}
-                <p class="welcome">Bienvenido, {{ user.email }}</p>
-            {% else %}
-                <p class="welcome">No estás autenticado.</p>
-            {% endif %}
-        {% endblock %}
         <div class="feed_post">
             {% if posts is empty %}
                 <p class="no-posts">No hay posts para mostrar.</p>
