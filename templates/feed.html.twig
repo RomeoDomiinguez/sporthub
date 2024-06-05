@@ -6,11 +6,14 @@
     <title>SportHub</title>
     <link rel="stylesheet" href="{{ asset('styles/feed.css') }}">
     <script src="https://kit.fontawesome.com/6643ad9f8a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            <a href="/feed">
+                <img src="{{ asset('img/logo.png') }}" alt="SportHub logo" class="logo">
+            </a>
             <ul class="menu">
                 <li><a href="/new_post" class="menu-item">
                     <i class="fa-solid fa-circle-plus fa-xl icon" style="color: #ffffff;"></i>
@@ -36,39 +39,48 @@
                         <li><a href="/logout">Cerrar Sesión</a></li>
                     </ul>
                 </li>
-
             </ul>
         </nav>
     </header>
     <main>
-        {% block body %}
-            {% if user %}
-                <p class="welcome">Bienvenido, {{ user.email }}</p>  <!-- Usa el atributo adecuado para el nombre del usuario -->
+        <div class="feed_post">
+            {% if posts is empty %}
+                <p class="no-posts">No hay posts para mostrar.</p>
             {% else %}
-                <p class="welcome">No estás autenticado.</p>
+                <ul class="post-list">
+                    {% for post in posts %}
+                        <li class="post">
+                            <h2 class="post-title">{{ post.titulo }}</h2>
+                            <p class="post-category"><strong>Categoría:</strong> {{ post.categoria }}</p>
+                            <p class="post-author"><strong>Autor:</strong> {{ post.autor }}</p>
+                            <p class="post-content">{{ post.contenido }}</p>
+                            {% if post.imagen is not empty %}
+                                <div class="post-image-container">
+                                    <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image">
+                                </div>
+                            {% endif %}
+                            <div class="like-section">
+                                <button class="like-button" onclick="likePost({{ post.id }})">
+                                    <i class="fa-solid fa-thumbs-up"></i> Like
+                                </button>
+                                <span class="like-count" id="like-count-{{ post.id }}">{{ post.likes }}</span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
             {% endif %}
-        {% endblock %}
-            <div class="feed_post">
-                {% if posts is empty %}
-                    <p class="no-posts">No hay posts para mostrar.</p>
-                {% else %}
-                    <ul class="post-list">
-                        {% for post in posts %}
-                            <li class="post">
-                                <h2 class="post-title">{{ post.titulo }}</h2>
-                                <p class="post-category"><strong>Categoría:</strong> {{ post.categoria }}</p>
-                                <p class="post-author"><strong>Autor:</strong> {{ post.autor }}</p>
-                                <p class="post-content">{{ post.contenido }}</p>
-                                {% if post.imagen is not empty %}
-                                    <div class="post-image-container">
-                                        <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image">
-                                    </div>
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
+        </div>
     </main>
+    <script>
+        function likePost(postId) {
+            $.post('/like_post/' + postId, function(response) {
+                if (response.success) {
+                    $('#like-count-' + postId).text(response.newLikeCount);
+                } else {
+                    alert('Error al dar like al post.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

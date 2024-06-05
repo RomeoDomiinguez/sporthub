@@ -13,18 +13,19 @@ body {
     color: white;
 }
 
+/* Navbar Styles */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem; /* Reducir padding para dispositivos más pequeños */
+    padding: 1rem 5rem;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 nav img {
-    width: 80px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    width: 80px;
     transition: all 0.3s ease;
 }
 
@@ -34,7 +35,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 10px; /* Reducir el margen para dispositivos pequeños */
+    margin-left: 10px;
     transition: all 0.3s ease;
 }
 
@@ -43,96 +44,12 @@ nav ul li a {
     padding: 10px;
     border-radius: 8px;
     text-decoration: none;
-    color: white; /* Añadir color blanco para el texto */
+    color: white;
 }
 
 nav ul li:hover {
-    transform: scale(1.2); /* Menor escala para dispositivos pequeños */
+    transform: scale(1.2);
     transition: all 0.3s ease;
-}
-
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #ffffff;
-}
-
-.no-results {
-    font-size: 1.2rem;
-    color: #8e8e8e; /* Color de texto de resultados vacíos */
-    margin-top: 20px;
-}
-
-.post-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    list-style: none;
-}
-
-.post {
-    background-color: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px;
-    color: #262626;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-}
-
-.post:hover {
-    transform: translateY(-10px);
-}
-
-.post-image-container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.post-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover; /* Ensure the image covers the container */
-}
-
-.post-details {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.post-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #262626; /* Color de título de post */
-}
-
-.post-category, .post-author {
-    font-size: 0.9rem;
-    color: #8e8e8e; /* Color de texto secundario */
-    margin-bottom: 10px;
-}
-
-.post-content {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #262626; /* Color de texto principal */
 }
 
 nav .dropdown {
@@ -166,28 +83,115 @@ nav .dropdown-menu li a {
     text-decoration: none;
 }
 
-.like-section {
+/* Container Styles */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* No results Styles */
+.no-results {
+    font-size: 1.2rem;
+    color: #8e8e8e;
+    margin-top: 20px;
+}
+
+/* Post List Styles */
+.post-list {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: 0;
+    list-style: none;
+}
+
+/* Post Styles */
+.post {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    color: #262626;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.post:hover {
+    transform: translateY(-10px);
+}
+
+.post-image-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.post-details {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #262626;
+}
+
+.post-category, .post-author {
+    font-size: 0.9rem;
+    color: #8e8e8e;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #262626;
+}
+
+/* Button Styles */
+form {
     margin-top: 10px;
 }
 
-.like-button {
-    background-color: #007BFF;
-    color: white;
+button {
+    background-color: #e74c3c;
+    color: #fff;
     border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    padding: 10px 15px;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.like-button i {
-    margin-right: 5px;
-}
-
-.like-count {
-    margin-left: 10px;
-    font-size: 16px;
+button:hover {
+    background-color: #c0392b;
 }

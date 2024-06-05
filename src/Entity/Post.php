@@ -27,10 +27,12 @@ class Post
     #[ORM\Column(length: 255)]
     private ?string $contenido = null;
 
-    #[ORM\Column(nullable: true)] // Permite que el valor sea nulo
-    // #[Assert\NotBlank(message: "Por favor, carga una imagen.")]
+    #[ORM\Column(nullable: true)]
     #[Assert\File(mimeTypes: ["image/jpeg", "image/png"], maxSize: "5M")]
-    private ?string $imagen = null; // Atributo para la imagen del post
+    private ?string $imagen = null;
+
+    #[ORM\Column(type: 'integer')]
+    private int $likes = 0;
 
     public function getId(): ?int
     {
@@ -45,7 +47,6 @@ class Post
     public function setTitulo(string $titulo): self
     {
         $this->titulo = $titulo;
-
         return $this;
     }
 
@@ -57,7 +58,6 @@ class Post
     public function setCategoria(string $categoria): self
     {
         $this->categoria = $categoria;
-
         return $this;
     }
 
@@ -69,7 +69,6 @@ class Post
     public function setAutor(?Usuario $autor): self
     {
         $this->autor = $autor;
-
         return $this;
     }
 
@@ -81,7 +80,6 @@ class Post
     public function setContenido(string $contenido): self
     {
         $this->contenido = $contenido;
-
         return $this;
     }
 
@@ -93,7 +91,23 @@ class Post
     public function setImagen(?string $imagen): self
     {
         $this->imagen = $imagen;
+        return $this;
+    }
 
+    public function getLikes(): int
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(int $likes): self
+    {
+        $this->likes = $likes;
+        return $this;
+    }
+
+    public function incrementLikes(): self
+    {
+        $this->likes++;
         return $this;
     }
 }
