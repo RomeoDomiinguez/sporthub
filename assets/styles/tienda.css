@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(111.4deg, rgba(7,7,9,1) 6.5%, rgb(113, 24, 24) 93.2%);
+    min-height: 100vh;
+    color: white;
+}
+
+.container {
+    width: 70%; /* Ajusta el ancho del contenedor principal */
+    margin: auto;
+    padding: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white    ; /* Color oscuro para el título principal */
+}
+
+.container ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas automáticas, mínimo 200px */
+    grid-gap: 20px; /* Espacio entre los elementos */
+    margin: 20px;
+}
+
+.container li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 20px;
+    min-width: 250px;
+}
+
+li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los detalles del producto */
+h2 {
+    font-size: 20px;
+    color: #111; /* Color oscuro para el título del producto */
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 10px 0;
+    color: #555; /* Color gris oscuro para el texto */
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #b12704; /* Color rojo para el precio */
+}
+
+/* Estilos para la imagen del producto */
+.product-image {
+    width: auto;
+    height: 200px;
+    border-radius: 5px 5px 0 0; /* Borde redondeado en la parte superior de la imagen */
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio sin deformar */
+}
+
+/* Estilos para el botón Añadir al carrito */
+form {
+    margin-top: 10px;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: #f0c14b; /* Color amarillo de Amazon para el botón */
+    color: #111; /* Color oscuro para el texto del botón */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #d9a633; /* Color amarillo más oscuro al pasar el ratón */
+}
+
+/* Estilos para los enlaces de Ver detalles */
+a {
+    text-decoration: none;
+    color: #0066c0; /* Color azul oscuro para los enlaces */
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #c45500; /* Color naranja oscuro al pasar el ratón sobre los enlaces */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav img {
+    width: 80px;
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}
+
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-toggle {
+    cursor: pointer;
+}
+
+nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    padding-top: 15px;
+}
+
+nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav .dropdown-menu li {
+    margin: 0;
+}
+
+nav .dropdown-menu li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}

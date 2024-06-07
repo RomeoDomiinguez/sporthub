@@ -1,0 +1,47 @@
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('styles/pago.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Formulario de Pago</h1>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.nombre) }}
+            {{ form_widget(form.nombre) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.direccion) }}
+            {{ form_widget(form.direccion) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.ciudad) }}
+            {{ form_widget(form.ciudad) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.codigoPostal) }}
+            {{ form_widget(form.codigoPostal) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.numeroTarjeta) }}
+            {{ form_widget(form.numeroTarjeta, {'attr': {'maxlength': 9, 'pattern': '\\d{9}'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.fechaExpiracion) }}
+            {{ form_widget(form.fechaExpiracion, {'attr': {'placeholder': 'MM/YY', 'pattern': '(0[1-9]|1[0-2])/\\d{2}'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.cvv) }}
+            {{ form_widget(form.cvv, {'attr': {'maxlength': 4, 'pattern': '\\d{3,4}'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.submit) }}
+        </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
