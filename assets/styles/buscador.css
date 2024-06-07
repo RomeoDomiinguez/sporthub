@@ -15,7 +15,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra verticalmente en la página */
+    align-items: center;
 }
 
 .container {
@@ -41,7 +41,7 @@ h1 {
     padding: 10px;
     margin-right: 10px;
     font-size: 16px;
-    border: 2px solid #dbdbdb; /* Color de borde similar a Instagram */
+    border: 2px solid #dbdbdb; 
     border-radius: 5px;
     background-color: #ffffff;
 }
@@ -49,7 +49,7 @@ h1 {
 .search-form button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #ff0000; /* Color de botón similar a Instagram */
+    background-color: #ff0000; 
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -58,7 +58,7 @@ h1 {
 }
 
 .search-form button:hover {
-    background-color: #b30000; /* Color de botón hover */
+    background-color: #b30000; 
 }
 
 .post-list {
@@ -68,7 +68,7 @@ h1 {
 
 .post {
     background-color: #ffffff;
-    border: 1px solid #dbdbdb; /* Borde de los posts */
+    border: 1px solid #dbdbdb; 
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -77,20 +77,20 @@ h1 {
     font-size: 1.2rem;
     font-weight: 600;
     padding: 10px;
-    color: #262626; /* Color de título de post */
+    color: #262626; 
 }
 
 .post-category, .post-author {
     font-size: 0.9rem;
     padding: 0 10px 10px;
-    color: #8e8e8e; /* Color de texto secundario */
+    color: #8e8e8e; 
 }
 
 .post-content {
     padding: 10px;
     font-size: 1rem;
     line-height: 1.5;
-    color: #262626; /* Color de texto principal */
+    color: #262626; 
 }
 
 .post-image-container {
@@ -108,21 +108,21 @@ h1 {
     text-align: center;
     margin-top: 20px;
     font-size: 1.2rem;
-    color: #8e8e8e; /* Color de texto de resultados vacíos */
+    color: #8e8e8e;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem; /* Reducir padding para dispositivos más pequeños */
+    padding: 1rem 5rem; 
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 nav img {
-    width: 80px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    width: 80px; 
     transition: all 0.3s ease;
 }
 
@@ -132,7 +132,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 10px; /* Reducir el margen para dispositivos pequeños */
+    margin-left: 10px; 
     transition: all 0.3s ease;
 }
 
@@ -141,11 +141,11 @@ nav ul li a {
     padding: 10px;
     border-radius: 8px;
     text-decoration: none;
-    color: white; /* Añadir color blanco para el texto */
+    color: white; 
 }
 
 nav ul li:hover {
-    transform: scale(1.2); /* Menor escala para dispositivos pequeños */
+    transform: scale(1.2);
     transition: all 0.3s ease;
 }
 nav .dropdown {

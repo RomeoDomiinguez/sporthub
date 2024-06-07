@@ -1,7 +1,5 @@
 <?php
 
-// src/Controller/Admin/ProductoCrudController.php
-
 namespace App\Controller\Admin;
 
 use App\Entity\Producto;
@@ -25,10 +23,10 @@ class ProductoCrudController extends AbstractCrudController
             TextareaField::new('descripcion'),
             MoneyField::new('precio')->setCurrency('EUR'),
             ImageField::new('imagen')
-                ->setBasePath('/images/') // Ruta base para mostrar las imágenes
-                ->setUploadDir('public/images/') // Directorio donde se guardarán las imágenes
-                ->setUploadedFileNamePattern('[randomhash].[extension]') // Patrón para generar nombres de archivo
-                ->setRequired(false), // No obligatorio
+                ->setBasePath('/images/') 
+                ->setUploadDir('public/images/') 
+                ->setUploadedFileNamePattern('[randomhash].[extension]') 
+                ->setRequired(false), 
         ];
     }
 }

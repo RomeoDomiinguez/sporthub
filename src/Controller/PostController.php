@@ -46,12 +46,10 @@ class PostController extends AbstractController
 
                 try {
                     $imagenFile->move(
-                        $this->getParameter('directorio_imagenes'), // Directorio configurado en services.yaml
+                        $this->getParameter('directorio_imagenes'), 
                         $nombreArchivo
                     );
                 } catch (FileException $e) {
-                    // Manejar el error si la carga de la imagen falla
-                    // Por ejemplo, podrías añadir un mensaje flash y redirigir a la página de creación de post
                     $this->addFlash('error', 'Se produjo un error al cargar la imagen.');
                     return $this->redirectToRoute('app_create_post');
                 }
@@ -65,7 +63,6 @@ class PostController extends AbstractController
             return $this->redirectToRoute('app_feed');
         }
 
-        // Obtener todos los posts ordenados de forma inversa por su id
         $posts = $this->postRepository->findBy([], ['id' => 'DESC']);
 
         return $this->render('new_post.html.twig', [

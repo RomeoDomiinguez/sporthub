@@ -17,16 +17,12 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        // Obtiene el correo electrónico del usuario actual
         $userEmail = $this->getUser()->getEmail();
 
-        // Verifica si el usuario es el administrador
         if ('admin@admin.com' !== $userEmail) {
-            // Redirigir a la página de acceso denegado personalizada
             return $this->render('error/admin_access_denied.html.twig');
         }
 
-        // Si es el administrador, redirige a la página de administración de usuarios
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
         return $this->redirect($adminUrlGenerator->setController(UsuarioCrudController::class)->generateUrl());
     }

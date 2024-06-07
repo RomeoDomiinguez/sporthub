@@ -13,14 +13,11 @@ class SearchController extends AbstractController
     #[Route('/search', name: 'app_search')]
     public function search(Request $request, PostRepository $postRepository): Response
     {
-        // Obtener parámetros de búsqueda del formulario
         $searchTerm = $request->query->get('search', '');
-        $searchBy = $request->query->get('searchBy', 'all'); // 'all', 'title', 'category', 'author'
+        $searchBy = $request->query->get('searchBy', 'all'); 
 
-        // QueryBuilder para buscar en los posts
         $postsQuery = $postRepository->createQueryBuilder('p');
 
-        // Aplicar filtros según los parámetros de búsqueda
         if (!empty($searchTerm)) {
             if ($searchBy === 'title' || $searchBy === 'all') {
                 $postsQuery->orWhere('p.titulo LIKE :searchTerm')
@@ -37,7 +34,6 @@ class SearchController extends AbstractController
             }
         }
 
-        // Obtener los resultados de la búsqueda
         $posts = $postsQuery->orderBy('p.id', 'DESC')
             ->getQuery()
             ->getResult();

@@ -1,6 +1,5 @@
 <?php
 
-// src/Repository/PostRepository.php
 
 namespace App\Repository;
 

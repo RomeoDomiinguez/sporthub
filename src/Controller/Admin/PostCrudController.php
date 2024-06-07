@@ -27,8 +27,8 @@ class PostCrudController extends AbstractCrudController
             TextField::new('categoria'),
             TextareaField::new('contenido'),
             ImageField::new('imagen')
-                ->setBasePath('uploads/') // Ruta base para las imágenes (ajustar según la configuración de tu aplicación)
-                ->setUploadDir('public/uploads') // Directorio donde se guardan las imágenes
+                ->setBasePath('uploads/') 
+                ->setUploadDir('public/uploads') 
                 ->setRequired(false)
                 ->hideOnIndex()
                 ->setLabel('Imagen del post')
