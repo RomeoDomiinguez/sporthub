@@ -15,7 +15,7 @@ class SearchController extends AbstractController
     {
  
         $searchTerm = $request->query->get('search', '');
-        $searchBy = $request->query->get('searchBy', 'all'); // 'all', 'title', 'category', 'author'
+        $searchBy = $request->query->get('searchBy', 'all'); 
 
         $postsQuery = $postRepository->createQueryBuilder('p');
 
