@@ -17,14 +17,14 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem; /* Reducir padding para dispositivos más pequeños */
+    padding: 1rem 5rem; 
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 nav img {
-    width: 80px; /* Ajustar tamaño de la imagen para dispositivos más pequeños */
+    width: 80px; 
     transition: all 0.3s ease;
 }
 
@@ -34,7 +34,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 10px; /* Reducir el margen para dispositivos pequeños */
+    margin-left: 10px; 
     transition: all 0.3s ease;
 }
 
@@ -43,11 +43,11 @@ nav ul li a {
     padding: 10px;
     border-radius: 8px;
     text-decoration: none;
-    color: white; /* Añadir color blanco para el texto */
+    color: white; 
 }
 
 nav ul li:hover {
-    transform: scale(1.2); /* Menor escala para dispositivos pequeños */
+    transform: scale(1.2); 
     transition: all 0.3s ease;
 }
 
@@ -66,7 +66,7 @@ h1 {
 
 .no-results {
     font-size: 1.2rem;
-    color: #8e8e8e; /* Color de texto de resultados vacíos */
+    color: #8e8e8e; 
     margin-top: 20px;
 }
 
@@ -107,7 +107,7 @@ h1 {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover; /* Ensure the image covers the container */
+    object-fit: cover; 
 }
 
 .post-details {
@@ -120,19 +120,19 @@ h1 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #262626; /* Color de título de post */
+    color: #262626; 
 }
 
 .post-category, .post-author {
     font-size: 0.9rem;
-    color: #8e8e8e; /* Color de texto secundario */
+    color: #8e8e8e; 
     margin-bottom: 10px;
 }
 
 .post-content {
     font-size: 1rem;
     line-height: 1.5;
-    color: #262626; /* Color de texto principal */
+    color: #262626; 
 }
 nav .dropdown {
     position: relative;
