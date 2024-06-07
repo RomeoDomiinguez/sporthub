@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -24,11 +23,16 @@ class SearchController extends AbstractController
         // Aplicar filtros según los parámetros de búsqueda
         if (!empty($searchTerm)) {
             if ($searchBy === 'title' || $searchBy === 'all') {
-                $postsQuery->andWhere('p.titulo LIKE :searchTerm')
+                $postsQuery->orWhere('p.titulo LIKE :searchTerm')
                     ->setParameter('searchTerm', '%' . $searchTerm . '%');
             }
             if ($searchBy === 'category' || $searchBy === 'all') {
-                $postsQuery->andWhere('p.categoria LIKE :searchTerm')
+                $postsQuery->orWhere('p.categoria LIKE :searchTerm')
+                    ->setParameter('searchTerm', '%' . $searchTerm . '%');
+            }
+            if ($searchBy === 'author' || $searchBy === 'all') {
+                $postsQuery->join('p.autor', 'a')
+                    ->orWhere('a.email LIKE :searchTerm')
                     ->setParameter('searchTerm', '%' . $searchTerm . '%');
             }
         }

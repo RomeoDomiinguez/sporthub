@@ -63,10 +63,14 @@
                                         <img src="{{ asset('images/' ~ post.imagen) }}" class="post-image">
                                     </div>
                                 {% endif %}
+                                <div class="like-section">
+                                <span class="like-count" id="like-count-{{ post.id }}">{{ post.likes }} Likes</span>
+                                </div>
                         <form action="{{ path('app_delete_post', {'id': post.id}) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este post?');">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
                             <button type="submit">Eliminar</button>
                         </form>
+                        
                     </li>
                 {% endfor %}
             </ul>

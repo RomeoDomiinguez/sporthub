@@ -32,8 +32,9 @@
                 </a></li>
                 <li class="dropdown">
                     <a href="/profile" class="dropdown-toggle">
-                    <i class="fa-solid fa-user fa-xl icon" style="color: #ffffff;"></i>
-                    Perfil</a>
+                        <i class="fa-solid fa-user fa-xl icon" style="color: #ffffff;"></i>
+                        Perfil
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="/logout">Cerrar Sesión</a></li>
                     </ul>
@@ -50,6 +51,7 @@
                 <option value="all" {% if searchBy == 'all' %}selected{% endif %}>Todos</option>
                 <option value="title" {% if searchBy == 'title' %}selected{% endif %}>Título</option>
                 <option value="category" {% if searchBy == 'category' %}selected{% endif %}>Categoría</option>
+                <option value="author" {% if searchBy == 'author' %}selected{% endif %}>Autor</option>
             </select>
             <button type="submit">Buscar</button>
         </form>

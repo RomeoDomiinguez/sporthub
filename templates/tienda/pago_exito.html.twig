@@ -1,0 +1,9 @@
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('styles/pago_exito.css') }}">
+{% endblock %}
+{% block body %}
+<h1>Pago Exitoso</h1>
+<p>Gracias por tu compra. Tu pago ha sido procesado correctamente.</p>
+<a href="{{ path('app_tienda') }}">Volver a la tienda</a>
+{% endblock %}
