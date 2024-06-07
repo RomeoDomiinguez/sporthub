@@ -79,8 +79,7 @@ class TiendaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Aquí manejarías el procesamiento del pago y limpieza del carrito.
-            // Por simplicidad, sólo mostraremos un mensaje de éxito y vaciaremos el carrito.
+
 
             $session->set('carrito', []);
 
