@@ -48,7 +48,7 @@ class PostType extends AbstractType
         $user = $post->getAutor();
         
         if($user === null) {
-            // Si no se estableció el autor en el formulario, intenta obtenerlo del usuario autenticado
+
             $user = $this->getUser();
             $post->setAutor($user);
         }
